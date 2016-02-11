@@ -6,13 +6,13 @@ import java.util.Map;
 public class Vigenere {
     private static String key;
 
-    public static void encrypt(String plaintext, boolean encrypt) {
+    public static void crypt(String plaintext, boolean encrypt) {
         plaintext = plaintext.replace(" ", "");
         char[] charArray = plaintext.toCharArray();
         int[] intArray = textToInts(plaintext.replace(" ", ""));
         int[] keyInts = textToInts(key.replace(" ", ""));
 
-        //do the encryption
+        //do the encryption/decryption
         int keyIndex = 0;
         for(int i = 0; i < charArray.length; i++) {
             int temp;
@@ -49,7 +49,7 @@ public class Vigenere {
     }
 
     public static void setKey(String key) {
-        Vigenere.key = key;
+        Vigenere.key = key.replace(" ", "");
     }
 
     public static final Map<Character, Integer> charToIntMap;
